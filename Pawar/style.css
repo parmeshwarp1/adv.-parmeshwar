@@ -1494,3 +1494,102 @@
       max-width: 100%;
     }
   }
+
+
+ .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .popup {
+      background: white;
+      padding: 30px 20px;
+      max-width: 400px;
+      width: 90%;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      text-align: center;
+      animation: popUp 0.3s ease-out;
+    }
+
+    @keyframes popUp {
+      0% {
+        transform: scale(0.7);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .popup h2 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .popup-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .popup-buttons button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-yes {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .btn-no {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .btn-yes:hover {
+      background-color: #0056b3;
+    }
+
+    .btn-no:hover {
+      background-color: #a71d2a;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .popup h2 {
+        font-size: 18px;
+      }
+
+      .popup-buttons {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .popup-buttons button {
+        width: 100%;
+      }
+    }
+
+    /* Hidden content initially */
+    #main-content {
+      display: none;
+      padding: 20px;
+    }
+
