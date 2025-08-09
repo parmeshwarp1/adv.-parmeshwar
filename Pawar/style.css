@@ -611,7 +611,7 @@
     }
 
     .service-card {
-        flex: 0 0 calc(60% - 0.5rem);
+        flex: 0 0 calc(80% - 0.5rem);
         padding: 2rem 1.5rem;
         min-height: 250px;
     }
