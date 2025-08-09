@@ -459,7 +459,10 @@ Expert in matrimonial cases and highly experienced in consultations and the requ
         let maxSlides = 0;
 
        
-
+ function updateServicesPerView() {
+          
+            maxSlides = Math.max(0, totalServices - servicesPerView);
+        }
         function createServiceDots() {
             const dotsContainer = document.getElementById('services-dots');
             dotsContainer.innerHTML = '';
