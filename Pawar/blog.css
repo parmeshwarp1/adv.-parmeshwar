@@ -6,6 +6,9 @@
     color:#e0e0e0;
     padding-bottom:80px;
   }
+  h1,h2,h3,h4,h5,h6{
+    color: #4caf50;
+  }
   .container{
     max-width:800px;
     margin:auto;
@@ -416,7 +419,5 @@
         .menu-toggle {
           display: flex;
         }
+        
       }
-h1,h2,h3,h4,h5,h6{
-  color:yellow:
-}
