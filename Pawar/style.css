@@ -1225,15 +1225,18 @@
 .image-gal{
     background-color: #242424;
 }
-.heading h1{
+.heading h2{
     text-align: center;
-    margin-bottom: 60px;
+/*     margin-bottom: 60px; */
  margin-top: 2%;
  font-size: 3rem;
  font-weight: 700;
  color: white;
    
   }
+.heading p{
+    margin-bottom: 2%;
+}
   .gallery {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
