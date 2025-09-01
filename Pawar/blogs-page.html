@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Blog Section with Pagination</title>
+  <style>
+    :root {
+      --brand: #ead16c;
+      --bg: #070707;
+      --card: #fff;
+      --text: #333;
+    }
+    h1{
+        color: white;
+        font-size: 2.5rem;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    /* Blog Grid */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .media img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-content {
+      padding: 16px;
+    }
+
+    .post-title {
+      margin: 0 0 10px;
+      font-size: 1.25rem;
+      color: var(--text);
+    }
+
+    .excerpt {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 12px;
+    }
+
+    .meta {
+      font-size: 0.85rem;
+      color: #777;
+      margin-bottom: 12px;
+    }
+
+    .read-more {
+      display: inline-block;
+      padding: 8px 14px;
+      background: var(--brand);
+      color: #fff;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .read-more:hover {
+      background: #005fcc;
+    }
+
+    /* Pagination */
+    .pagination {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .page-btn {
+      border: none;
+      background: var(--card);
+      color: var(--text);
+      padding: 10px 16px;
+      border-radius: 50%;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .page-btn:hover {
+      background: var(--brand);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .page-btn.active {
+      background: var(--brand);
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Latest Blogs</h1>
+  <section class="blog-grid" id="blogContainer">
+    
+    <!-- Blog Card 1 -->
+    <article class="card">
+      <div class="media">
+        <img src="https://www.advparmeshwardpawar.com/Blog%20Image/mutual-consent-divorce-lawyer-in-pune%20-min.jpg" alt="Blog 1">
+      </div>
+      <div class="card-content">
+        <h3 class="post-title">Mutual Consent Divorce Lawyer in Pune- A Complete Guide
+        </h3>
+        <p class="excerpt">A mutual divorce happens when a husband and wife both come to the understanding that their marriage isn’t working out, and they choose to part ways calmly and respectfully, without bitterness or blame.        </p>
+        <div class="meta"><span>Sep 1, 2025</span> • <span>4 min read</span></div>
+        <a class="read-more" href="https://www.advparmeshwardpawar.com/blogs/mutual-consent-divorce-lawyer-in-pune.html">Read More</a>
+      </div>
+    </article>
+
+    <!-- Blog Card 2 -->
+    <article class="card">
+      <div class="media">
+        <img src="https://www.advparmeshwardpawar.com/Blog%20Image/how-to-choose-best-divorce-lawyer-in-pune.jpg" alt="Blog 2">
+      </div>
+      <div class="card-content">
+        <h3 class="post-title">How to Choose the Best Divorce Lawyer in Pune: Key Considerations for 2025
+        </h3>
+        <p class="excerpt">Divorce is never an easy journey. When you're faced with the decision to part ways legally, having the right divorce lawyer by your side can make all the difference            .</p>
+        <div class="meta"><span>Sep 2, 2025</span> • <span>3 min read</span></div>
+        <a class="read-more" href="https://www.advparmeshwardpawar.com/blogs/how-to-choose-the-best-divorce-lawyer-in-pune.html">Read More</a>
+      </div>
+    </article>
+
+    <!-- Blog Card 3 -->
+    <article class="card">
+      <div class="media">
+        <img src="https://www.advparmeshwardpawar.com/Blog%20Image/best%20divorce%20lawyer%20in%20pune-min.jpg" alt="Blog 3">
+      </div>
+      <div class="card-content">
+        <h3 class="post-title">Best Divorce Lawyer in Pune - 15+ years Experienced divorce lawyer
+        </h3>
+        <p class="excerpt">Divorce is never just a legal process — it’s an emotional journey. Whether you’re going through a mutual separation or a difficult contested divorce, having the best divorce lawyer in Pune by your side can be the difference between anxiety and clarity, stress and resolution.
+
+        </p>
+        <div class="meta"><span>Sep 3, 2025</span> • <span>5 min read</span></div>
+        <a class="read-more" href="https://www.advparmeshwardpawar.com/blogs/Best-Divorce-Lawyer-in-Pune.html">Read More</a>
+      </div>
+    </article>
+
+ 
+    <!-- Add more blog cards manually like above -->
+    
+  </section>
+
+  <!-- Pagination -->
+  <div class="pagination" id="pagination"></div>
+
+  <script>
+    const postsPerPage = 6;
+    const blogContainer = document.getElementById("blogContainer");
+    const cards = blogContainer.querySelectorAll(".card");
+    const pagination = document.getElementById("pagination");
+    const totalPages = Math.ceil(cards.length / postsPerPage);
+
+    function showPage(page) {
+      const start = (page - 1) * postsPerPage;
+      const end = start + postsPerPage;
+      cards.forEach((card, index) => {
+        card.style.display = (index >= start && index < end) ? "block" : "none";
+      });
+
+      document.querySelectorAll(".page-btn").forEach(btn => btn.classList.remove("active"));
+      document.querySelector(`.page-btn[data-page="${page}"]`).classList.add("active");
+    }
+
+    function setupPagination() {
+      for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement("button");
+        btn.innerText = i;
+        btn.classList.add("page-btn");
+        btn.dataset.page = i;
+        btn.addEventListener("click", () => showPage(i));
+        pagination.appendChild(btn);
+      }
+    }
+
+    setupPagination();
+    showPage(1);
+  </script>
+
+</body>
+</html>
