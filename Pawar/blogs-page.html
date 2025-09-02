@@ -12,27 +12,44 @@
       --card: #fff;
       --text: #333;
     }
-    h1{
-        color: white;
-        font-size: 2.5rem;
-    }
-    body {
-      font-family: Arial, sans-serif;
-      background: var(--bg);
-      margin: 0;
-      padding: 20px;
-    }
+ 
+ 
+body{
+  background-color: black;
+  padding-top: 70px; 
+}
+   
+/* Blog title */
+.blog-title {
+  text-align: center;
+  margin: 20px 0;
+  text-decoration: underline 4px #ead16c;
+}
 
-    h1 {
-      text-align: center;
-      margin: 5% 0 2% 0;
-    }
+.blog-title h2 {
+  font-size: 2rem;
+  color: white;
+}
 
+/* Responsive scaling */
+@media (max-width: 768px) {
+  .blog-title h2 {
+    font-size: 2rem;
+    margin-top: 10%;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-title h2 {
+    font-size: 2rem;
+  }
+}
     /* Blog Grid */
     .blog-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
       gap: 20px;
+     
      
     }
 
@@ -142,8 +159,10 @@
         <button class="menu-toggle" id="menu-toggle">☰</button>
     </div>
 </nav>
-  <h1>Latest Blogs</h1>
-  <section class="blog-grid" id="blogContainer">
+<div class="blog-title">
+  <h2>Latest Blog</h2>
+</div>
+<section class="blog-grid" id="blogContainer">
     
     <!-- Blog Card 1 -->
     <article class="card">
@@ -253,5 +272,6 @@
     © 2025 Adv. Parmeshwar D. Pawar. All rights reserved
   </div>
 </footer>
+<script src="script.js"></script>
 </body>
 </html>
